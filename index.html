@@ -2,27 +2,195 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Vote for Our Server!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vote for TitanMC!</title>
+  
+  <style>
+    /* Color Theme and Basic Reset */
+    :root {
+      --primary: #4287f5;
+      --primary-hover: #2b68c7;
+      --bg-dark: #121212;
+      --card-bg: #1e1e1e;
+      --text-main: #ffffff;
+      --text-muted: #a0a0a0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Main Container */
+    .vote-container {
+      background-color: var(--card-bg);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+    }
+
+    h1 {
+      color: var(--primary);
+      margin-top: 0;
+      font-size: 2.2rem;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    /* The Big Vote Button */
+    .btn-vote-all {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      font-size: 22px;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(66, 135, 245, 0.3);
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .btn-vote-all:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(66, 135, 245, 0.5);
+    }
+
+    .btn-vote-all:active {
+      transform: translateY(1px);
+    }
+
+    /* Pop-up Warning Box */
+    .warning-box {
+      background-color: rgba(255, 170, 0, 0.1);
+      border: 1px solid rgba(255, 170, 0, 0.3);
+      color: #ffaa00;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    /* Individual Links Section */
+    .individual-links {
+      text-align: left;
+      background-color: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .individual-links h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--text-main);
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .link-grid li a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .link-grid li a::before {
+      content: "▸";
+      color: var(--primary);
+      margin-right: 8px;
+    }
+
+    .link-grid li a:hover {
+      color: var(--primary);
+    }
+
+  </style>
+
   <script>
     function openVoteLinks() {
-      // Add all your vote URLs here
+      // All 11 vote URLs extracted from your config
       const links = [
-        "https://vote1.example.com",
-        "https://vote2.example.com",
-        "https://vote3.example.com"
+        "https://www.planetminecraft.com/server/titanmc-6819992/",
+        "https://minecraftservers.org/vote/682126",
+        "https://minecraft-mp.com/server-s351609",
+        "https://topg.org/minecraft-servers/server-678315#vote",
+        "https://www.minerank.com/titancm2/vote",
+        "https://minecraft-server-list.com/server/517046/vote/",
+        "https://minecraftbestservers.com/server-titanmc2.6318/vote",
+        "https://best-minecraft-servers.co/server-titanmc2.32041/vote",
+        "https://mclist.gg/vote/1067",
+        "https://minelist.net/vote/5060",
+        "https://minecraftlist.org/vote/33974"
       ];
 
       // Open each link in a new tab
-      links.forEach(link => window.open(link, '_blank'));
-
-      // Optional: show a message
-      alert("All vote links have been opened! Thank you for voting!");
+      links.forEach(link => {
+        window.open(link, '_blank');
+      });
     }
   </script>
 </head>
-<body style="display:flex; justify-content:center; align-items:center; height:100vh; font-family:Arial, sans-serif;">
-  <button onclick="openVoteLinks()" style="padding:20px 40px; font-size:24px; cursor:pointer;">
-    Click Here to Vote!
-  </button>
+<body>
+
+  <div class="vote-container">
+    <h1>Vote for TitanMC</h1>
+    <p class="subtitle">Support the server and earn your daily rewards! Click the button below to open all voting sites at once.</p>
+
+    <button class="btn-vote-all" onclick="openVoteLinks()">
+      ⚡ Open All Voting Sites ⚡
+    </button>
+
+    <div class="warning-box">
+      <strong>⚠️ Pop-up Blocker Notice:</strong> Your browser will likely block multiple tabs from opening. Please look at the top right of your URL bar and click <strong>"Always allow pop-ups"</strong> for this site!
+    </div>
+
+    <div class="individual-links">
+      <h3>Manual Links</h3>
+      <ul class="link-grid">
+        <li><a href="https://www.planetminecraft.com/server/titanmc-6819992/" target="_blank">PlanetMinecraft</a></li>
+        <li><a href="https://minecraftservers.org/vote/682126" target="_blank">MinecraftServers.org</a></li>
+        <li><a href="https://minecraft-mp.com/server-s351609" target="_blank">Minecraft-MP</a></li>
+        <li><a href="https://topg.org/minecraft-servers/server-678315#vote" target="_blank">TopG</a></li>
+        <li><a href="https://www.minerank.com/titancm2/vote" target="_blank">MineRank</a></li>
+        <li><a href="https://minecraft-server-list.com/server/517046/vote/" target="_blank">MC Server List</a></li>
+        <li><a href="https://minecraftbestservers.com/server-titanmc2.6318/vote" target="_blank">MC Best Servers</a></li>
+        <li><a href="https://best-minecraft-servers.co/server-titanmc2.32041/vote" target="_blank">Best MC Servers</a></li>
+        <li><a href="https://mclist.gg/vote/1067" target="_blank">MCList.gg</a></li>
+        <li><a href="https://minelist.net/vote/5060" target="_blank">MineList.net</a></li>
+        <li><a href="https://minecraftlist.org/vote/33974" target="_blank">MinecraftList.org</a></li>
+      </ul>
+    </div>
+  </div>
+
 </body>
 </html>
