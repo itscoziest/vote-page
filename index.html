@@ -53,7 +53,7 @@
     }
 
     /* The Big Vote Button */
-    .btn-vote {
+    .btn-vote-all {
       background-color: var(--primary);
       color: white;
       border: none;
@@ -68,22 +68,26 @@
       margin-bottom: 20px;
     }
 
-    .btn-vote:hover {
+    .btn-vote-all:hover {
       background-color: var(--primary-hover);
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(66, 135, 245, 0.5);
     }
 
-    .btn-vote:active {
+    .btn-vote-all:active {
       transform: translateY(1px);
     }
 
-    .btn-vote:disabled {
-      background-color: #333;
-      color: #888;
-      cursor: not-allowed;
-      box-shadow: none;
-      transform: none;
+    /* Pop-up Warning Box */
+    .warning-box {
+      background-color: rgba(255, 170, 0, 0.1);
+      border: 1px solid rgba(255, 170, 0, 0.3);
+      color: #ffaa00;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+      text-align: left;
     }
 
     /* Individual Links Section */
@@ -133,40 +137,26 @@
   </style>
 
   <script>
-    // All 11 vote URLs
-    const links = [
-      "https://www.planetminecraft.com/server/titanmc-6819992/",
-      "https://minecraftservers.org/vote/682126",
-      "https://minecraft-mp.com/server-s351609",
-      "https://topg.org/minecraft-servers/server-678315#vote",
-      "https://www.minerank.com/titancm2/vote",
-      "https://minecraft-server-list.com/server/517046/vote/",
-      "https://minecraftbestservers.com/server-titanmc2.6318/vote",
-      "https://best-minecraft-servers.co/server-titanmc2.32041/vote",
-      "https://mclist.gg/vote/1067",
-      "https://minelist.net/vote/5060",
-      "https://minecraftlist.org/vote/33974"
-    ];
+    function openAllLinks() {
+      // All 11 vote URLs
+      const links = [
+        "https://www.planetminecraft.com/server/titanmc-6819992/",
+        "https://minecraftservers.org/vote/682126",
+        "https://minecraft-mp.com/server-s351609",
+        "https://topg.org/minecraft-servers/server-678315#vote",
+        "https://www.minerank.com/titancm2/vote",
+        "https://minecraft-server-list.com/server/517046/vote/",
+        "https://minecraftbestservers.com/server-titanmc2.6318/vote",
+        "https://best-minecraft-servers.co/server-titanmc2.32041/vote",
+        "https://mclist.gg/vote/1067",
+        "https://minelist.net/vote/5060",
+        "https://minecraftlist.org/vote/33974"
+      ];
 
-    let currentVoteIndex = 0;
-
-    function openNextVote() {
-      if (currentVoteIndex < links.length) {
-        // Open the current link
-        window.open(links[currentVoteIndex], '_blank');
-        
-        // Move to the next link
-        currentVoteIndex++;
-        
-        // Update the button text
-        const btn = document.getElementById('mainVoteBtn');
-        if (currentVoteIndex < links.length) {
-          btn.innerText = `⚡ Open Vote ${currentVoteIndex + 1} of ${links.length} ⚡`;
-        } else {
-          btn.innerText = `🎉 All Done! Thanks for voting! 🎉`;
-          btn.disabled = true; // Greys out the button when finished
-        }
-      }
+      // Fires all 11 links at once
+      links.forEach(link => {
+        window.open(link, '_blank');
+      });
     }
   </script>
 </head>
@@ -174,11 +164,15 @@
 
   <div class="vote-container">
     <h1>Vote for TitanMC</h1>
-    <p class="subtitle">Support the server and earn your daily rewards! Click the button below to cycle through the voting sites.</p>
+    <p class="subtitle">Support the server and earn your daily rewards! Click the button below to open all voting sites at once.</p>
 
-    <button id="mainVoteBtn" class="btn-vote" onclick="openNextVote()">
-      ⚡ Open Vote 1 of 11 ⚡
+    <button class="btn-vote-all" onclick="openAllLinks()">
+      ⚡ Open All Voting Sites ⚡
     </button>
+
+    <div class="warning-box">
+      <strong>⚠️ Important:</strong> If only one site opens, your browser is blocking pop-ups. You must allow pop-ups for this site, or use the manual links below!
+    </div>
 
     <div class="individual-links">
       <h3>Manual Links</h3>
