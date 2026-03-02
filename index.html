@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vote for Our Server!</title>
+  <script>
+    function openVoteLinks() {
+      // Add all your vote URLs here
+      const links = [
+        "https://vote1.example.com",
+        "https://vote2.example.com",
+        "https://vote3.example.com"
+      ];
+
+      // Open each link in a new tab
+      links.forEach(link => window.open(link, '_blank'));
+
+      // Optional: show a message
+      alert("All vote links have been opened! Thank you for voting!");
+    }
+  </script>
+</head>
+<body style="display:flex; justify-content:center; align-items:center; height:100vh; font-family:Arial, sans-serif;">
+  <button onclick="openVoteLinks()" style="padding:20px 40px; font-size:24px; cursor:pointer;">
+    Click Here to Vote!
+  </button>
+</body>
+</html>
